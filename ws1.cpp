@@ -1,4 +1,4 @@
-#include <iostream>
+  #include <iostream>
 using namespace std;
 
 // Part 1.1 Complete the node declaration
@@ -33,19 +33,29 @@ int main()
         // Part 2, create a new node pointer, and append it to the list.
 
       Node *nodePtr = new Node(num);
-      if (tail == nullptr) {
-        head = nodePtr;
-      }
-      else {
-	      tail->next = nodePtr;
-      }
-      tail = nodePtr;
+if (head == nullptr) {
+    tail = nodePtr;
+}
+else {
+	nodePtr->next = head;
+}
+head = nodePtr;
+
         cout << "Enter a number to add to the list (" << SENTINEL << " to end)";
         cin >> num;
 
     }
 
 	printList(head);
+  if (head != nullptr) {
+	Node *next = head->next;
+	delete head;
+	head = next;
+}
+if (head == nullptr) {
+tail = nullptr;
+}
+  printList(head);
     
     // Part 3, delete the list
 
